@@ -402,14 +402,14 @@ igbuio_pci_probe(struct pci_dev *dev, const struct pci_device_id *id)
 #endif
 		/* fall back to INTX */
 	case RTE_INTR_MODE_LEGACY:
-		if (pci_intx_mask_supported(dev)) {
+//		if (pci_intx_mask_supported(dev)) {
 			dev_dbg(&dev->dev, "using INTX");
 			udev->info.irq_flags = IRQF_SHARED | IRQF_NO_THREAD;
 			udev->info.irq = dev->irq;
 			udev->mode = RTE_INTR_MODE_LEGACY;
 			break;
-		}
-		dev_notice(&dev->dev, "PCI INTX mask not supported\n");
+//		}
+//		dev_notice(&dev->dev, "PCI INTX mask not supported\n");
 		/* fall back to no IRQ */
 	case RTE_INTR_MODE_NONE:
 		udev->mode = RTE_INTR_MODE_NONE;
